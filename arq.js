@@ -37,12 +37,12 @@ function calcular()
 
         if(media >= 7)
         {
-          res.innerHTML = `Sua média semestral é ${media} , Você esta aprovado!`
+          res.innerHTML = `Sua média semestral é ${media.toFixed(1)} , Você esta aprovado!`
 
         }
         else
         {
-          res.innerHTML = `Sua média semestral é ${media} , Você esta de exame! `
+          res.innerHTML = `Sua média semestral é ${media.toFixed(1)} , Você esta de exame! `
           
         }
         
