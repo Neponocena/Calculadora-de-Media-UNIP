@@ -7,15 +7,36 @@
 </head>
 <body>
 
-  
+   <div class="conteudo">
   <h1>Calculadora UNIP</h1>
-  NP1<input type="number" id = "np1"><br>
-  NP2<input type="number" id = "np2"> <br>
-  PIM<input type="number" name="" id="pim"><br>
-  <input type="button" value="Verifique se esta aprovado!" onclick="calcular()">
+  
+  <div class="input">
+    <label for="np1">NP1:</label>
+    <input type="number" id="np1">
+  </div>
+
+  <div class="input">
+    <label for="np2">NP2:</label>
+    <input type="number" id="np2" >
+  </div>
+
+  <div class="input">
+    <label for="pim">PIM:</label>
+    <input type="number" id="pim">
+  </div>
+
+  <button onclick="calcular()">Verifique se está aprovado!</button>
+
+  <div id="exameArea" style="display: none;" class="exame">
+    <p>Você está de exame.</p>
+    <label for="exame">Nota do Exame:</label>
+    <input type="number" id="exame" placeholder="0.0">
+    <button onclick="exame()">Calcular Exame</button>
+  </div>
+
   <div id="res"></div>
-
-
+</div>
+  
   <script src="arq.js"></script>
 </body>
 </html>

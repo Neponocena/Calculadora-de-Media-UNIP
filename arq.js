@@ -1,3 +1,4 @@
+let media = 0
 function calcular()
     {
        let np1 = document.getElementById("np1").value
@@ -32,18 +33,50 @@ function calcular()
           return
         }
 
-        let media = (np1 * 0.4) + (np2 * 0.4) + (pim * 0.2);
+         media = (np1 * 0.4) + (np2 * 0.4) + (pim * 0.2);
         
 
         if(media >= 7)
         {
           res.innerHTML = `Sua média semestral é ${media.toFixed(1)} , Você esta aprovado!`
+          exameArea.style.display = "none"
 
         }
         else
         {
           res.innerHTML = `Sua média semestral é ${media.toFixed(1)} , Você esta de exame! `
+          exameArea.style.display = "block"
           
         }
         
+    }
+
+    function exame()
+    {
+        let exame = document.getElementById("exame").value
+        const res = document.getElementById("res")
+
+        if(exame === "")
+            {
+                res.innerHTML = "Digite a nota do exame"
+                return
+            }
+
+        exame = Number(exame)
+
+        if(isNaN(exame) || exame < 0 || exame > 10 )
+            {
+                res.innerHTML = "A nota deve estar entre 0 e 10"
+                return
+            }
+
+        if(media + exame >= 10)
+            {
+                res.innerHTML = "Você está aprovado!"
+                return
+            }
+        else
+            {
+                res.innerHTML = "Você está de DP!"
+            }
     }
