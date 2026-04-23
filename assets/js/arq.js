@@ -1,4 +1,14 @@
 let media = 0
+
+
+// Constantes de configuração
+const NOTA_MINIMA = 0;
+const NOTA_MAXIMA = 10;
+const NOTA_MEDIA = 7;
+const PESO_NP1 = 0.4;
+const PESO_NP2 = 0.4;
+const PESO_PIM = 0.2;
+
 function calcular()
     {
        let np1 = document.getElementById("np1").value
@@ -24,19 +34,19 @@ function calcular()
 
         if
         (
-            np1 < 0 || np1 > 10 ||
-            np2 < 0 || np2 > 10 ||
-            pim < 0 || pim > 10 
+            np1 < NOTA_MINIMA || np1 > NOTA_MAXIMA ||
+            np2 < NOTA_MINIMA || np2 > NOTA_MAXIMA ||
+            pim < NOTA_MINIMA || pim > NOTA_MAXIMA 
         )
         {
-          res.innerHTML = "As notas devem estar entre 0 e 10."
+          res.innerHTML = `As notas devem estar entre ${NOTA_MINIMA} e ${NOTA_MAXIMA}.`
           return
         }
 
-         media = (np1 * 0.4) + (np2 * 0.4) + (pim * 0.2);
+         media = (np1 * PESO_NP1) + (np2 * PESO_NP2) + (pim * PESO_PIM);
         
 
-        if(media >= 7)
+        if(media >= NOTA_MEDIA)
         {
           res.innerHTML = `Sua média semestral é ${media.toFixed(1)} , Você esta aprovado!`
           exameArea.style.display = "none"
@@ -64,13 +74,13 @@ function calcular()
 
         exame = Number(exame)
 
-        if(isNaN(exame) || exame < 0 || exame > 10 )
+        if(isNaN(exame) || exame < NOTA_MINIMA || exame > NOTA_MAXIMA )
             {
-                res.innerHTML = "A nota deve estar entre 0 e 10"
+                res.innerHTML = `A nota deve estar entre ${NOTA_MINIMA} e ${NOTA_MAXIMA}.`
                 return
             }
 
-        if(media + exame >= 10)
+        if(media + exame >= NOTA_MAXIMA)
             {
                 res.innerHTML = "Você está aprovado!"
                 return
