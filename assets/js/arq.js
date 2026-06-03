@@ -90,3 +90,46 @@ function calcular()
                 res.innerHTML = "Você está de DP!"
             }
     }
+
+    // Configura a navegação pela tecla Enter
+    function setupEnterNavigation() {
+    const np1 = document.getElementById("np1");
+    const np2 = document.getElementById("np2");
+    const pim = document.getElementById("pim");
+    const exameInput = document.getElementById("exame");
+
+    // Navegação: NP1 -> NP2
+    np1.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+        event.preventDefault();
+        np2.focus();
+        }
+    });
+
+    // Navegação: NP2 -> PIM
+    np2.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+        event.preventDefault();
+        pim.focus();
+        }
+    });
+
+    // No PIM, Enter dispara o cálculo (como se clicasse no botão)
+    pim.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+        event.preventDefault();
+        calcular();
+        }
+    });
+
+    // No campo do exame, Enter dispara o cálculo do exame
+    exameInput.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+        event.preventDefault();
+        exame();
+        }
+    });
+    }
+
+    // Inicializa os eventos quando a página carregar
+    document.addEventListener("DOMContentLoaded", setupEnterNavigation);
